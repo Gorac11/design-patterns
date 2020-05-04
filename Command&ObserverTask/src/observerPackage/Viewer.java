@@ -20,10 +20,9 @@ public class Viewer implements Observer {
 
 	@Override
 	public void update() {
-		/*if(trainee == null) {
-			System.out.println("No one is training.");	//Would this be actually useful at all? Never used.
-			return;
-		}*/
+		
+		//Is there a need for an if(?==null){SystemOut...;return;} ???
+		
 		traineeState = trainee.getUpdate();
 		System.out.println(this.getName() + " is " + traineeState);
 	}
