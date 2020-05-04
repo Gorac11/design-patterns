@@ -13,14 +13,16 @@ public class mainClass {
 
 	public static void main(String[] args) {
 
-		Instructor instructor=new Instructor();
-		Trainee trainee=new Trainee("Ivan");
+		Instructor instructor=new Instructor("Instructor A");
+		Trainee trainee=new Trainee("Ivan",true);	//Name=Ivan, Standing=true;
 		
 		Command lieDownCommand = new LieDownCommand(trainee);
 		Command standUpCommand = new StandUpCommand(trainee);
 		
 		Boolean exitBool=false;
-		trainee.setDefaultStanding(true);
+		
+		//trainee.setDefaultStanding(true);		//Alternative way to set default position
+												//Will override the constructor's state
 		
 		Observer obs1=new Viewer("Obs1");
 		Observer obs2=new Viewer("Obs2");
@@ -37,7 +39,7 @@ public class mainClass {
 		
 		System.out.println("Type \"lie down\" or \"stand up\" for commands and \"exit\" to exit!");
 		do {
-			System.out.print("\nInstructor: ");
+			System.out.print("\n"+instructor.getName()+": ");
 			
 			Scanner in = new Scanner(System.in);
 

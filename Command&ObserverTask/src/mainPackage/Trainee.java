@@ -9,24 +9,26 @@ public class Trainee implements Observable {	//Contains both command and observe
 
 	private ArrayList<Observer> observers = new ArrayList<Observer>();
 	private String name;
-	private Boolean lying;
+	private Boolean standing;	//Used in Ifs
 	private String[] states={"standing up!","lying down!"};	//Easier to set for observers.
-	private String state;									//Possibly also useful for commands.
+	private String currentState;							//Possibly also useful for commands.
 	
-	public Trainee(String name) {
+	public Trainee(String name,Boolean standing) {
 		this.name=name;
+		this.standing=standing;
 	}
 
+	//Alternative way to set default position in Main method.
 	public void setDefaultStanding(Boolean standing) {
-		this.lying=!standing;	//If standing is true, lying is false. If standing is false, lying is true.
-		state=states[0];
+		this.standing=standing;	
 	}
 	
+	
 	public void lieDownCommand() {
-		if(lying==false) {
+		if(standing==true) {
 			System.out.println("Trainee "+name+": Lying down!");
-			this.lying = true;
-			state=states[1];
+			this.standing = false;
+			currentState=states[1];
 			this.notifyObservers();
 		}
 		else {
@@ -34,20 +36,15 @@ public class Trainee implements Observable {	//Contains both command and observe
 		}
 	}
 	public void standUpCommand() {
-		if(lying==true) {
+		if(standing==false) {
 			System.out.println("Trainee "+name+": Standing up!");
-			this.lying = false;
-			state=states[0];
+			this.standing = true;
+			currentState=states[0];
 			this.notifyObservers();
 		}
 		else {
 			System.out.println("Trainee "+name+": Already standing!");
 		}
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-		this.notifyObservers();
 	}
 
 	@Override
@@ -72,7 +69,7 @@ public class Trainee implements Observable {	//Contains both command and observe
 
 	@Override
 	public String getUpdate() {
-		return this.state;	
+		return this.currentState;	
 	}
 	
 }

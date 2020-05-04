@@ -21,7 +21,7 @@ public class Viewer implements Observer {
 	@Override
 	public void update() {
 		
-		//Is there a need for an if(?==null){SystemOut...;return;} ???
+		//Is there a need for   if(?==null){System.out...;return;} ???
 		
 		traineeState = trainee.getUpdate();
 		System.out.println(this.getName() + " is " + traineeState);
