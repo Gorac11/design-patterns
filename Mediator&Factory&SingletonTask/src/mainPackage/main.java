@@ -23,7 +23,7 @@ public class main {
 	        user1.send("Hi All");
 	        user2.send("addBot");   
 
-	        user2.send("addBot");   
+	        user3.send("addBot");   
 
 	        user1.send("catty");
 	        user3.send("Hell Yeah");
