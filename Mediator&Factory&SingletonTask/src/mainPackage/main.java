@@ -12,7 +12,7 @@ public class main {
 		   
 		   mediator.setNaughtyWord("cat");
 	     
-	   //  UserFactory userFactory = new UserFactory();
+	   //  UserFactory userFactory = new UserFactory();	//Used Static so iterating bots is easier
 		
 			User user1= UserFactory.createUser(mediator, "User", "Peter");
 			User user2= UserFactory.createUser(mediator, "User", "Ivan");
